@@ -1,7 +1,7 @@
-import { Text, View, StyleSheet, Image, Pressable } from 'react-native';
-import { Post } from '@/types';
-import { FontAwesome } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { Text, View, StyleSheet, Image, Pressable } from "react-native";
+import { Post } from "@/types";
+import { FontAwesome } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 type PostListItemProps = {
   post: Post;
@@ -9,14 +9,14 @@ type PostListItemProps = {
 
 type FooterButtonProp = {
   text: string;
-  icon: React.ComponentProps<typeof FontAwesome>['name'];
+  icon: React.ComponentProps<typeof FontAwesome>["name"];
 };
 
 function FooterButton({ text, icon }: FooterButtonProp) {
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={{ flexDirection: "row" }}>
       <FontAwesome name={icon} size={16} color="gray" />
-      <Text style={{ marginLeft: 5, color: 'gray', fontWeight: '500' }}>
+      <Text style={{ marginLeft: 5, color: "gray", fontWeight: "500" }}>
         {text}
       </Text>
     </View>
@@ -28,15 +28,15 @@ export default function PostListItem({ post }: PostListItemProps) {
     <Link href={`/posts/${post.id}`} asChild>
       <Pressable style={styles.container}>
         {/* Header */}
-        <Link href={`/users/${post.author.id}`} asChild>
+        <Link href={`/users/${post.profile.id}`} asChild>
           <Pressable style={styles.header}>
             <Image
-              source={{ uri: post.author.image }}
+              source={{ uri: post.profile.image }}
               style={styles.userImage}
             />
             <View>
-              <Text style={styles.userName}>{post.author.name}</Text>
-              <Text>{post.author.position}</Text>
+              <Text style={styles.userName}>{post.profile.name}</Text>
+              <Text>{post.profile.position}</Text>
             </View>
           </Pressable>
         </Link>
@@ -62,20 +62,20 @@ export default function PostListItem({ post }: PostListItemProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    width: '100%',
+    backgroundColor: "white",
+    width: "100%",
     maxWidth: 500,
-    alignSelf: 'center',
+    alignSelf: "center",
   },
 
   // Header
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     padding: 10,
   },
   userName: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
     marginBottom: 5,
   },
@@ -92,16 +92,16 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   postImage: {
-    width: '100%',
+    width: "100%",
     aspectRatio: 1,
   },
 
   // footer
   footer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingVertical: 10,
-    justifyContent: 'space-around',
+    justifyContent: "space-around",
     borderTopWidth: 0.5,
-    borderColor: 'lightgray',
+    borderColor: "lightgray",
   },
 });

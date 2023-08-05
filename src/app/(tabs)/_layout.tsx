@@ -1,14 +1,14 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Link, Tabs } from "expo-router";
+import { Pressable, useColorScheme } from "react-native";
 
-import Colors from '@/constants/Colors';
+import Colors from "@/constants/Colors";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
   return <FontAwesome size={24} style={{ marginBottom: -3 }} {...props} />;
@@ -20,13 +20,13 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#191919',
+        tabBarActiveTintColor: "#191919",
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home Feed',
+          title: "Home Feed",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Link href="/search" asChild>
@@ -47,14 +47,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="network"
         options={{
-          title: 'My Network',
+          title: "My Network",
           tabBarIcon: ({ color }) => <TabBarIcon name="group" color={color} />,
         }}
       />
       <Tabs.Screen
         name="new-post"
         options={{
-          title: 'Post',
+          title: "Post",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="plus-square" color={color} />
           ),
@@ -63,14 +63,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="notifications"
         options={{
-          title: 'Notifications',
+          title: "Notifications",
           tabBarIcon: ({ color }) => <TabBarIcon name="bell" color={color} />,
         }}
       />
       <Tabs.Screen
         name="jobs"
         options={{
-          title: 'Jobs',
+          title: "Jobs",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="briefcase" color={color} />
           ),
