@@ -29,8 +29,6 @@ export default function HomeFeedScreen() {
     console.log(error);
     return <Text>Error happen</Text>;
   }
-  console.log(data);
-
   return (
     <FlatList
       data={data.postList}
